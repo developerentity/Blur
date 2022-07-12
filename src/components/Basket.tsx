@@ -1,17 +1,24 @@
-import { Divider, Drawer, List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material"
-import { IBlur } from "../App"
+import {
+    Divider,
+    Drawer,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Typography
+} from "@mui/material"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import BasketItem from "./BasketItem";
+import { IBlurOrder } from "../interface/Blur";
 
 
 interface IProps {
     cartOpen: boolean
     cartClose: () => void
-    order?: Array<IBlur>
-    removeFromOrder?: (any: any) => void
+    order?: Array<IBlurOrder>
 }
 
-const Basket = ({ cartOpen, cartClose, order, removeFromOrder }: IProps) => {
+const Basket = ({ cartOpen, cartClose, order }: IProps) => {
 
     return (
         <Drawer
@@ -29,18 +36,17 @@ const Basket = ({ cartOpen, cartClose, order, removeFromOrder }: IProps) => {
                 {!order?.length
                     ? (<ListItem>Cart is empty</ListItem>)
                     : (<>
-                        {order.map((item) => (<BasketItem item={item} />))}
+                        {order.map((item) => (<BasketItem key={item.id} item={item} />))}
                         <Divider />
                         <ListItem>
                             <Typography
                                 sx={{ fontWeight: 800 }}
                             >
-                                Total cost {order.reduce((acc: any, item: any) => acc + item.price, 0)} $
+                                Total cost {order.reduce((acc: any, item: any) => acc + item.price * item.quantity, 0)} $
                             </Typography>
                         </ListItem>
                     </>)}
             </List>
-
         </Drawer >
     )
 }

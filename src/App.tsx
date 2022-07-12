@@ -1,9 +1,10 @@
-import { Button, Container } from '@mui/material';
+import { Container } from '@mui/material';
 import Header from './components/Header';
 import BlurList from './components/BlurList';
 import Basket from './components/Basket';
 import { useState } from 'react';
 import Snack from './components/Snack';
+import { useAppSelector } from './app/hooks';
 
 export interface IBlur {
   id: number | string;
@@ -105,18 +106,19 @@ const App = () => {
   const [isCartOpen, setCartOpen] = useState(false);
   const [isSnackOpen, setSnackOpen] = useState(false);
 
+  const orderList = useAppSelector((state) => state.order.orderList)
+
   return (
     <>
       <Header
         handleCart={() => setCartOpen(true)}
-        orderLength={list.length}
+        orderLength={orderList.length}
       />
       <Container sx={{ mt: 10, mb: 2 }}>
-        <Button onClick={() => setSnackOpen(true)}>Open</Button>
         <BlurList list={list} />
       </Container>
       <Basket
-        order={list}
+        order={orderList}
         cartOpen={isCartOpen}
         cartClose={() => setCartOpen(false)} />
       <Snack

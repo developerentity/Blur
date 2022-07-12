@@ -1,16 +1,39 @@
-import { IconButton, ListItem, ListItemText } from "@mui/material";
-import CloseIcon from '@mui/icons-material/Close';
-import { IBlur } from "../App";
+import { Button, ButtonGroup, ListItem, ListItemText } from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { Box } from "@mui/system";
+import { IBlurOrder } from "../interface/Blur";
+import { useAppDispatch } from "../app/hooks";
+import { addProduct, decreaseItemQuantity, removeProduct } from "../features/order/orderSlice";
 
 
-const BasketItem = ({ item }: { item: IBlur }) => {
+const BasketItem = ({ item }: { item: IBlurOrder }) => {
+
+    const dispatch = useAppDispatch()
 
     return (
         <ListItem>
-            <ListItemText>{item.name}</ListItemText>
-            <IconButton>
-                <CloseIcon />
-            </IconButton>
+            <ListItemText sx={{ mx: 2 }}>{`${item.quantity}x`}</ListItemText>
+            <ListItemText sx={{ mx: 2 }}>{item.name}</ListItemText>
+
+            <Box sx={{ display: 'block' }}>
+                <ButtonGroup size="small" variant="outlined">
+                    <Button
+                        disabled={item.quantity >= 10}
+                        onClick={() => dispatch(addProduct(item))}
+                    >
+                        <AddIcon />
+                    </Button>
+                    {item.quantity > 1
+                        ? <Button onClick={() => dispatch(decreaseItemQuantity(item.id))}>
+                            <RemoveIcon />
+                        </Button>
+                        : <Button onClick={() => dispatch(removeProduct(item.id))}>
+                            <DeleteIcon />
+                        </Button>}
+                </ButtonGroup>
+            </Box>
         </ListItem>
     )
 }

@@ -1,28 +1,34 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { IBlur } from "../App";
+import { useAppDispatch } from "../app/hooks";
+import { addProduct } from "../features/order/orderSlice";
 
-const BlurItem = ({
-  id, img, text
-}: {
-  id: string | number;
-  img: string | undefined,
-  text: string | undefined,
-}) => {
+const BlurItem = ({ item }: { item: IBlur }) => {
+
+  const dispatch = useAppDispatch()
+
   return (
     <Grid item xs={12} md={4}>
       <Card sx={{ height: '100%' }}>
         <CardMedia
           component='img'
           height={140}
-          image={img}
+          image={item.poster}
           alt={'image'}
         />
         <CardContent>
           <Typography >
-            {text}
+            {item.name}
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size='medium' variant='outlined' onClick={() => console.log(id)}>Go</Button>
+          <Button
+            size='medium'
+            variant='outlined'
+            onClick={() => dispatch(addProduct({ ...item, quantity: 1 }))}
+          >
+            Buy
+          </Button>
         </CardActions>
       </Card>
     </Grid>
