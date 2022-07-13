@@ -9,7 +9,12 @@ const BlurItem = ({ item }: { item: IBlur }) => {
 
   return (
     <Grid item xs={12} md={4}>
-      <Card sx={{ height: '100%' }}>
+      <Card sx={{
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between'
+      }}>
         <CardMedia
           component='img'
           height={140}
