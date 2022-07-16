@@ -1,11 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import orderSlice from '../features/order/orderSlice'
+import rootReducer from './rootReducer'
 
 
 const store = configureStore({
-    reducer: {
-        order: orderSlice,
-    }
+    reducer: rootReducer,
+    // middleware: {},
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

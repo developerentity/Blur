@@ -5,7 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Box } from "@mui/system";
 import { IBlurOrder } from "../interface/Blur";
 import { useAppDispatch } from "../app/hooks";
-import { addProduct, decreaseItemQuantity, removeProduct } from "../features/order/orderSlice";
+import { addProduct, decreaseItemQuantity, removeProduct } from "../app/slices/orderSlice";
 
 
 const BasketItem = ({ item }: { item: IBlurOrder }) => {

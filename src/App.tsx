@@ -78,27 +78,27 @@ const list: Array<IBlur> = [
     poster: "https://images.unsplash.com/photo-1550784343-6bd0ce5d600b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80",
     price: 1450,
   },
-  // {
-  //   id: 'sticker01',
-  //   category: 'stickers',
-  //   name: 'Набор наклеек Frontend',
-  //   poster: "https://images.unsplash.com/photo-1572375992501-4b0892d50c69?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80",
-  //   price: 550,
-  // },
-  // {
-  //   id: 'sticker02',
-  //   category: 'stickers',
-  //   name: 'Набор наклеек Backend',
-  //   poster: "https://images.unsplash.com/photo-1496493820873-82288ac48a48?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80",
-  //   price: 550,
-  // },
-  // {
-  //   id: 'sticker03',
-  //   category: 'stickers',
-  //   name: 'Набор наклеек FullStack',
-  //   poster: "https://images.unsplash.com/photo-1593754500338-969a679d5ca3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-  //   price: 1550,
-  // },
+  {
+    id: 'sticker01',
+    category: 'stickers',
+    name: 'Набор наклеек Frontend',
+    poster: "https://images.unsplash.com/photo-1572375992501-4b0892d50c69?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80",
+    price: 550,
+  },
+  {
+    id: 'sticker02',
+    category: 'stickers',
+    name: 'Набор наклеек Backend',
+    poster: "https://images.unsplash.com/photo-1496493820873-82288ac48a48?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80",
+    price: 550,
+  },
+  {
+    id: 'sticker03',
+    category: 'stickers',
+    name: 'Набор наклеек FullStack',
+    poster: "https://images.unsplash.com/photo-1593754500338-969a679d5ca3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+    price: 1550,
+  },
 ];
 
 const App = () => {

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../../app/store";
+import type { RootState } from "../store";
 import { IBlurOrder } from "../../interface/Blur";
 
 // Define a type for the slice state

@@ -1,7 +1,7 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { IBlur } from "../App";
 import { useAppDispatch } from "../app/hooks";
-import { addProduct } from "../features/order/orderSlice";
+import { addProduct } from "../app/slices/orderSlice";
 
 const BlurItem = ({ item }: { item: IBlur }) => {
 
