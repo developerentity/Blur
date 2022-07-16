@@ -5,6 +5,7 @@ import Basket from './components/Basket';
 import { useState } from 'react';
 import Snack from './components/Snack';
 import { useAppSelector } from './app/hooks';
+import LoadingView from './components/LoadingView';
 
 export interface IBlur {
   id: number | string;
@@ -126,6 +127,7 @@ const App = () => {
         isOpen={isSnackOpen}
         onClose={() => setSnackOpen(false)}
       />
+      <LoadingView />
     </ >
   );
 }
