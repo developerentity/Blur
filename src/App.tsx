@@ -3,7 +3,6 @@ import Header from './components/Header';
 import BlurList from './components/BlurList';
 import Basket from './components/Basket';
 import { useState } from 'react';
-import Snack from './components/Snack';
 import { useAppSelector } from './app/hooks';
 import LoadingView from './components/LoadingView';
 
@@ -105,7 +104,6 @@ const list: Array<IBlur> = [
 const App = () => {
 
   const [isCartOpen, setCartOpen] = useState(false);
-  const [isSnackOpen, setSnackOpen] = useState(false);
 
   const orderList = useAppSelector((state) => state.order.orderList)
 
@@ -122,11 +120,6 @@ const App = () => {
         order={orderList}
         cartOpen={isCartOpen}
         cartClose={() => setCartOpen(false)} />
-      <Snack
-        message={'This product was added to the cart'}
-        isOpen={isSnackOpen}
-        onClose={() => setSnackOpen(false)}
-      />
       <LoadingView />
     </ >
   );

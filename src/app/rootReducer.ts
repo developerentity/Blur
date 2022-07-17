@@ -6,7 +6,7 @@ import pokemonSlice from "./slices/pokemonSlice";
 const rootReducer = combineReducers({
   order: orderSlice,
   pokemon: pokemonSlice,
-  loading: loadingSlice
+  loading: loadingSlice,
 });
 
 export default rootReducer;
