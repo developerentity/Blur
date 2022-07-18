@@ -6,11 +6,17 @@ import { Box } from "@mui/system";
 import { IBlurOrder } from "../interface/interface";
 import { useAppDispatch } from "../app/hooks";
 import { addProduct, decreaseItemQuantity, removeProduct } from "../app/slices/orderSlice";
+import { enqueueSnackbar } from "../app/slices/notifierSlice";
 
 
 const BasketItem = ({ item }: { item: IBlurOrder }) => {
 
     const dispatch = useAppDispatch()
+
+    const onDelete = () => {
+        dispatch(removeProduct(item.id))
+        dispatch(enqueueSnackbar({ message: 'Item has been removed from cart!', options: { variant: 'warning' } }))
+    }
 
     return (
         <ListItem>
@@ -29,7 +35,7 @@ const BasketItem = ({ item }: { item: IBlurOrder }) => {
                         ? <Button onClick={() => dispatch(decreaseItemQuantity(item.id))}>
                             <RemoveIcon />
                         </Button>
-                        : <Button onClick={() => dispatch(removeProduct(item.id))}>
+                        : <Button onClick={onDelete}>
                             <DeleteIcon />
                         </Button>}
                 </ButtonGroup>
