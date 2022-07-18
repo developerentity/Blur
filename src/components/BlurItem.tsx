@@ -1,22 +1,16 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
-import { useSnackbar, VariantType } from "notistack";
 import { IBlur } from "../App";
 import { useAppDispatch } from "../app/hooks";
+import { enqueueSnackbar } from "../app/slices/notifierSlice";
 import { addProduct } from "../app/slices/orderSlice";
 
 const BlurItem = ({ item }: { item: IBlur }) => {
 
-  const { enqueueSnackbar } = useSnackbar();
-
-  const showSnack = (message: string, variant: VariantType) => {
-    enqueueSnackbar(message, { variant });
-  };
-
   const dispatch = useAppDispatch()
 
   const handleClick = () => {
-    showSnack('Item successfully added to cart!', 'success')
-    dispatch(addProduct({ ...item, quantity: 1 })) 
+    dispatch(addProduct({ ...item, quantity: 1 }))
+    dispatch(enqueueSnackbar({ message: 'Item successfully added to cart!', options: { variant: 'success' } }));
   }
 
   return (

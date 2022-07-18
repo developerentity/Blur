@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
-import { IBlurOrder } from "../../interface/Blur";
+import { IBlurOrder } from "../../interface/interface";
 
 // Define a type for the slice state
 interface CounterState {

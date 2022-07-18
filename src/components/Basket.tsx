@@ -9,7 +9,7 @@ import {
 } from "@mui/material"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import BasketItem from "./BasketItem";
-import { IBlurOrder } from "../interface/Blur";
+import { IBlurOrder } from "../interface/interface";
 
 
 interface IProps {

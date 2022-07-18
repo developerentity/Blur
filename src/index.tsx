@@ -21,7 +21,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <SnackbarProvider maxSnack={3}>
+    <SnackbarProvider maxSnack={5}>
       <ThemeProvider theme={theme}>
         <Provider store={store}>
           <App />

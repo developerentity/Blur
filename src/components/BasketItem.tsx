@@ -3,7 +3,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Box } from "@mui/system";
-import { IBlurOrder } from "../interface/Blur";
+import { IBlurOrder } from "../interface/interface";
 import { useAppDispatch } from "../app/hooks";
 import { addProduct, decreaseItemQuantity, removeProduct } from "../app/slices/orderSlice";
 

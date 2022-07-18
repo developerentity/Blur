@@ -5,6 +5,7 @@ import Basket from './components/Basket';
 import { useState } from 'react';
 import { useAppSelector } from './app/hooks';
 import LoadingView from './components/LoadingView';
+import Notifier from './components/Notifier';
 
 export interface IBlur {
   id: number | string;
@@ -121,6 +122,7 @@ const App = () => {
         cartOpen={isCartOpen}
         cartClose={() => setCartOpen(false)} />
       <LoadingView />
+      <Notifier />
     </ >
   );
 }
