@@ -29,7 +29,7 @@ function CustomLink({ children, to, ...props }: LinkProps) {
                 textDecoration: "none",
                 marginRight: '3rem',
                 width: '100%',
-                color: match ? 'pink' : 'undefined'
+                color: match ? 'pink' : 'undefined',
             }}
             {...props}
         >
@@ -45,7 +45,9 @@ const Navigation = ({ navOpen, navClose, navList }: IProps) => (
         open={navOpen}
         onClose={navClose}
     >
-        <MenuList>
+        <MenuList
+            sx={{ width: '200px' }}
+        >
             {navList?.map((link) => (
                 <CustomLink
                     key={link.title}
