@@ -54,16 +54,18 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const Header = ({
+  handleNavOpen,
   handleCart,
   orderLength
 }: {
+  handleNavOpen: () => void,
   handleCart: () => void,
   orderLength?: number
 }) => {
   return (
     <AppBar>
       <Toolbar>
-        <IconButton>
+        <IconButton onClick={handleNavOpen}>
           <MenuIcon />
         </IconButton>
         <Typography

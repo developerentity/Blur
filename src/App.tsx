@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useAppSelector } from './app/hooks';
 import LoadingView from './components/LoadingView';
 import Notifier from './components/Notifier';
+import Navigation from './components/Navigation';
 
 export interface IBlur {
   id: number | string;
@@ -102,8 +103,24 @@ const list: Array<IBlur> = [
   },
 ];
 
+const navList = [
+  {
+    href: '/home',
+    title: 'Home',
+  },
+  {
+    href: '/projects',
+    title: 'Projects',
+  },
+  {
+    href: '/about',
+    title: 'About',
+  },
+]
+
 const App = () => {
 
+  const [navOpen, setNavOpen] = useState(false);
   const [isCartOpen, setCartOpen] = useState(false);
 
   const orderList = useAppSelector((state) => state.order.orderList)
@@ -111,6 +128,7 @@ const App = () => {
   return (
     <>
       <Header
+        handleNavOpen={() => setNavOpen(true)}
         handleCart={() => setCartOpen(true)}
         orderLength={orderList.length}
       />
@@ -121,6 +139,11 @@ const App = () => {
         order={orderList}
         cartOpen={isCartOpen}
         cartClose={() => setCartOpen(false)} />
+      <Navigation
+        navList={navList}
+        navOpen={navOpen}
+        navClose={() => setNavOpen(false)}
+      />
       <LoadingView />
       <Notifier />
     </ >
