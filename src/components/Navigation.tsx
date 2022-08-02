@@ -29,7 +29,10 @@ function CustomLink({ children, to, ...props }: LinkProps) {
                 textDecoration: "none",
                 marginRight: '3rem',
                 width: '100%',
-                color: match ? 'pink' : 'undefined',
+                color: (theme) =>
+                    match
+                        ? 'undefined'
+                        : `${theme.palette.primary.main} !important`,
             }}
             {...props}
         >
