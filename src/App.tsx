@@ -7,6 +7,7 @@ import { useAppSelector } from './app/hooks';
 import LoadingView from './components/LoadingView';
 import Notifier from './components/Notifier';
 import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 
 export interface IBlur {
   id: number | string;
@@ -135,6 +136,7 @@ const App = () => {
       <Container sx={{ mt: 10, mb: 2 }}>
         <BlurList list={list} />
       </Container>
+      <Footer />
       <Basket
         order={orderList}
         cartOpen={isCartOpen}
