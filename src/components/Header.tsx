@@ -9,6 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CustomSearch from "./CustomSearch";
 import { useState } from "react";
+import { Icon } from "@iconify/react";
 
 const Header = ({
   handleNavOpen,
@@ -26,7 +27,7 @@ const Header = ({
     <AppBar>
       <Toolbar>
         <IconButton onClick={handleNavOpen}>
-          <MenuIcon />
+          <Icon icon='line-md:menu' />
         </IconButton>
         <Typography
           variant="h6"
