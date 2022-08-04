@@ -50,5 +50,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@iconify/icons-fontisto": "^1.2.3",
+    "@iconify/react": "^3.2.2"
   }
 }
