@@ -9,16 +9,17 @@ import {
 } from "@mui/material"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import BasketItem from "./BasketItem";
-import { IBlurOrder } from "../interface/interface";
+import { useAppSelector } from "../app/hooks";
 
 
 interface IProps {
     cartOpen: boolean
     cartClose: () => void
-    order?: Array<IBlurOrder>
 }
 
-const Basket = ({ cartOpen, cartClose, order }: IProps) => {
+const Basket = ({ cartOpen, cartClose }: IProps) => {
+
+    const orderList = useAppSelector((state) => state.order.orderList)
 
     return (
         <Drawer
@@ -33,16 +34,16 @@ const Basket = ({ cartOpen, cartClose, order }: IProps) => {
                     </ListItemIcon>
                     <ListItemText primary="Basket" />
                 </ListItem>
-                {!order?.length
+                {!orderList?.length
                     ? (<ListItem>Cart is empty</ListItem>)
                     : (<>
-                        {order.map((item) => (<BasketItem key={item.id} item={item} />))}
+                        {orderList.map((item) => (<BasketItem key={item.id} item={item} />))}
                         <Divider />
                         <ListItem>
                             <Typography
                                 sx={{ fontWeight: 800 }}
                             >
-                                Total cost {order.reduce((acc: any, item: any) => acc + item.price * item.quantity, 0)} $
+                                Total cost {orderList.reduce((acc: any, item: any) => acc + item.price * item.quantity, 0)} $
                             </Typography>
                         </ListItem>
                     </>)}

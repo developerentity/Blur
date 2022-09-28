@@ -3,7 +3,6 @@ import Header from './components/Header';
 import BlurList from './components/BlurList';
 import Basket from './components/Basket';
 import { useState } from 'react';
-import { useAppSelector } from './app/hooks';
 import LoadingView from './components/LoadingView';
 import Notifier from './components/Notifier';
 import Navigation from './components/Navigation';
@@ -124,21 +123,18 @@ const App = () => {
   const [navOpen, setNavOpen] = useState(false);
   const [isCartOpen, setCartOpen] = useState(false);
 
-  const orderList = useAppSelector((state) => state.order.orderList)
 
   return (
     <>
       <Header
         handleNavOpen={() => setNavOpen(true)}
         handleCart={() => setCartOpen(true)}
-        orderLength={orderList.length}
       />
       <Container sx={{ mt: 10, mb: 2 }}>
         <BlurList list={list} />
       </Container>
       <Footer />
       <Basket
-        order={orderList}
         cartOpen={isCartOpen}
         cartClose={() => setCartOpen(false)} />
       <Navigation

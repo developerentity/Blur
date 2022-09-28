@@ -5,22 +5,22 @@ import {
   Typography,
   Badge,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CustomSearch from "./CustomSearch";
 import { useState } from "react";
 import { Icon } from "@iconify/react";
+import { useAppSelector } from "../app/hooks";
 
 const Header = ({
   handleNavOpen,
   handleCart,
-  orderLength
 }: {
   handleNavOpen: () => void,
   handleCart: () => void,
-  orderLength?: number
 }) => {
 
+
+  const orderListLength = useAppSelector((state) => state.order.orderList.length)
   const [value, setValue] = useState('')
 
   return (
@@ -41,7 +41,7 @@ const Header = ({
         <IconButton onClick={handleCart} sx={{ ml: 2 }}>
           <Badge
             color='warning'
-            badgeContent={orderLength}
+            badgeContent={orderListLength}
           >
             <ShoppingCartIcon />
           </Badge>
