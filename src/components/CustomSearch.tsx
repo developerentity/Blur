@@ -68,6 +68,13 @@ const CustomSearch = ({
         return () => clearTimeout(timeoutId);
     }, [setValue, timeout, query]);
 
+    const [data, setData] = useState([])
+    const [items, setItems] = useState([])
+
+    useEffect(() => {
+        setItems(data.filter((el: any) => el.toLowerCase().includes(query.toLowerCase())))
+    }, [query])
+
     // const onReset = () => {
     //     setValue('');
     //     setQuery('');
