@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
+import ErrorPage from "../components/ErrorPage";
 import Root, { loader as rootLoader } from './root'
 
 export const rootRouter = createBrowserRouter([
@@ -7,10 +8,10 @@ export const rootRouter = createBrowserRouter([
         path: "/",
         element: <Root />,
         loader: rootLoader,
-        errorElement: <div>error</div>,
+        errorElement: <ErrorPage />,
         children: [
             {
-                errorElement: <div>error</div>,
+                errorElement: <ErrorPage />,
                 children: [
                     { index: true, element: <App /> },
                     // {

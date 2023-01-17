@@ -1,4 +1,5 @@
 import {
+    Box,
     Drawer,
     MenuItem,
     MenuList,
@@ -40,7 +41,7 @@ const Root = () => {
     const [isCartOpen, setCartOpen] = useState(false);
 
     return (
-        <div>
+        <Box sx={{ width: '100%', height: '100%' }}>
             <Header
                 handleNavOpen={() => setNavOpen(true)}
                 handleCart={() => setCartOpen(true)}
@@ -80,7 +81,7 @@ const Root = () => {
                     ))}
                 </MenuList>
             </Drawer >
-        </div>
+        </Box>
     )
 }
 
