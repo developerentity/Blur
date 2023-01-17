@@ -15,7 +15,7 @@ import Notifier from "../components/Notifier";
 
 const list = [
     {
-        href: '/home',
+        href: '/',
         title: 'Home',
     },
     {
@@ -60,33 +60,37 @@ const Root = () => {
                 <Footer />
             </Box>
             <Drawer
+                id='sidebar'
                 anchor='left'
                 open={navOpen}
                 onClose={() => setNavOpen(false)}
             >
-                <MenuList
-                    sx={{ width: '200px' }}
-                >
-                    {navList.map((item: { title: string; href: string }) => (
-                        <NavLink
-                            key={item.title}
-                            to={item.href}
-                            style={{ margin: '0', textDecoration: "none" }}
-                            className={({ isActive, isPending }) =>
-                                isActive ? "active" : isPending ? "pending" : ""
-                            }
-                        >
-                            <MenuItem
-                                sx={{
-                                    textDecoration: "none",
-                                    marginRight: '3rem',
-                                    width: '100%',
-                                }}>
-                                {item.title}
-                            </MenuItem>
-                        </NavLink>
-                    ))}
-                </MenuList>
+                <nav>
+                    <MenuList
+                        sx={{ width: '200px' }}
+                    >
+                        {navList.map((item: { title: string; href: string }) => (
+                            <NavLink
+                                key={item.title}
+                                to={item.href}
+                                style={{ margin: '0', textDecoration: "none" }}
+                                className={({ isActive, isPending }) =>
+                                    isActive ? "active" : isPending ? "pending" : ""
+                                }
+                            >
+                                <MenuItem
+                                    sx={{
+                                        textDecoration: "none",
+                                        marginRight: '3rem',
+                                        width: '100%',
+                                        background: 'inherit',
+                                    }}>
+                                    {item.title}
+                                </MenuItem>
+                            </NavLink>
+                        ))}
+                    </MenuList>
+                </nav>
             </Drawer >
         </Box>
     )
