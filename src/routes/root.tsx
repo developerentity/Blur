@@ -1,5 +1,6 @@
 import {
     Box,
+    Container,
     Drawer,
     MenuItem,
     MenuList,
@@ -7,6 +8,7 @@ import {
 import { useState } from "react";
 import { NavLink, Outlet, useLoaderData } from "react-router-dom";
 import Basket from "../components/Basket";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import LoadingView from "../components/LoadingView";
 import Notifier from "../components/Notifier";
@@ -41,7 +43,7 @@ const Root = () => {
     const [isCartOpen, setCartOpen] = useState(false);
 
     return (
-        <Box sx={{ width: '100%', height: '100%' }}>
+        <Box sx={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}>
             <Header
                 handleNavOpen={() => setNavOpen(true)}
                 handleCart={() => setCartOpen(true)}
@@ -49,9 +51,14 @@ const Root = () => {
             <Basket
                 cartOpen={isCartOpen}
                 cartClose={() => setCartOpen(false)} />
-            <Outlet />
             <LoadingView />
             <Notifier />
+            <Container sx={{ mt: 10, mb: 2, flex: '1 0 auto' }}>
+                <Outlet />
+            </ Container>
+            <Box sx={{ flexShrink: '0' }}>
+                <Footer />
+            </Box>
             <Drawer
                 anchor='left'
                 open={navOpen}

@@ -1,6 +1,4 @@
-import { Container } from '@mui/material';
 import BlurList from './components/BlurList';
-import Footer from './components/Footer';
 
 export interface IBlur {
   id: number | string;
@@ -100,12 +98,7 @@ const list: Array<IBlur> = [
 const App = () => {
 
   return (
-    <>
-      <Container sx={{ mt: 10, mb: 2 }}>
-        <BlurList list={list} />
-      </Container>
-      <Footer />
-    </>
+    <BlurList list={list} />
   );
 }
 
