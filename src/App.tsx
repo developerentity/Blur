@@ -1,11 +1,5 @@
 import { Container } from '@mui/material';
-import Header from './components/Header';
 import BlurList from './components/BlurList';
-import Basket from './components/Basket';
-import { useState } from 'react';
-import LoadingView from './components/LoadingView';
-import Notifier from './components/Notifier';
-import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 
 export interface IBlur {
@@ -103,48 +97,15 @@ const list: Array<IBlur> = [
   },
 ];
 
-const navList = [
-  {
-    href: '/home',
-    title: 'Home',
-  },
-  {
-    href: '/projects',
-    title: 'Projects',
-  },
-  {
-    href: '/about',
-    title: 'About',
-  },
-]
-
 const App = () => {
-
-  const [navOpen, setNavOpen] = useState(false);
-  const [isCartOpen, setCartOpen] = useState(false);
-
 
   return (
     <>
-      <Header
-        handleNavOpen={() => setNavOpen(true)}
-        handleCart={() => setCartOpen(true)}
-      />
       <Container sx={{ mt: 10, mb: 2 }}>
         <BlurList list={list} />
       </Container>
       <Footer />
-      <Basket
-        cartOpen={isCartOpen}
-        cartClose={() => setCartOpen(false)} />
-      <Navigation
-        navList={navList}
-        navOpen={navOpen}
-        navClose={() => setNavOpen(false)}
-      />
-      <LoadingView />
-      <Notifier />
-    </ >
+    </>
   );
 }
 

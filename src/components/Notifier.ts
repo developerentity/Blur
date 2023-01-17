@@ -59,7 +59,6 @@ const Notifier = () => {
         key && storeDisplayed(key);
       }
     );
-    console.log(displayed);
   }, [notifications, closeSnackbar, enqueueSnackbar, dispatch]);
 
   return null;
