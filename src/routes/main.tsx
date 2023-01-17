@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "../App";
 import About from "../components/About";
+import Products, { loader as productsLoader } from "../components/Products";
 import ErrorPage from "../components/ErrorPage";
 import Projects from "../components/Projects";
 import Root, { loader as rootLoader } from './root'
@@ -15,7 +15,11 @@ export const rootRouter = createBrowserRouter([
             {
                 errorElement: <ErrorPage />,
                 children: [
-                    { index: true, element: <App /> },
+                    {
+                        index: true,
+                        element: <Products />,
+                        loader: productsLoader,
+                    },
                     {
                         path: "projects",
                         element: <Projects />,

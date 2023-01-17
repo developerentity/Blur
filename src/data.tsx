@@ -1,6 +1,4 @@
-import BlurList from './components/BlurList';
-
-export interface IBlur {
+export interface IProduct {
   id: number | string;
   category: string | undefined;
   name: string | undefined;
@@ -8,7 +6,7 @@ export interface IBlur {
   price: number | string | undefined,
 }
 
-const list: Array<IBlur> = [
+const list: Array<IProduct> = [
   {
     id: 'js01',
     category: 'books',
@@ -95,11 +93,4 @@ const list: Array<IBlur> = [
   },
 ];
 
-const App = () => {
-
-  return (
-    <BlurList list={list} />
-  );
-}
-
-export default App;
+export const getProducts = () => list

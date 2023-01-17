@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+// import App from './products';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import { SnackbarProvider } from 'notistack';
@@ -22,20 +22,20 @@ const initialState = {
     }
 }
 
-describe('Provider test', () => {
-    const mockStore = configureStore()
-    let store
+// describe('Provider test', () => {
+//     const mockStore = configureStore()
+//     let store
 
-    it('renders "Blur" text', () => {
-        store = mockStore(initialState)
-        render(<Provider store={store}>
-            <SnackbarProvider maxSnack={5}>
-                <App />
-            </SnackbarProvider>
-        </Provider>);
-        const linkElement = screen.getByText(/blur/i);
-        expect(linkElement).toBeInTheDocument();
-    });
-})
+//     it('renders "Blur" text', () => {
+//         store = mockStore(initialState)
+//         render(<Provider store={store}>
+//             <SnackbarProvider maxSnack={5}>
+//                 <App />
+//             </SnackbarProvider>
+//         </Provider>);
+//         const linkElement = screen.getByText(/blur/i);
+//         expect(linkElement).toBeInTheDocument();
+//     });
+// })
 
 

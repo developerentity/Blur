@@ -1,10 +1,10 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
-import { IBlur } from "../App";
+import { IProduct } from "../data";
 import { useAppDispatch } from "../app/hooks";
 import { enqueueSnackbar } from "../app/slices/notifierSlice";
 import { addProduct } from "../app/slices/orderSlice";
 
-const BlurItem = ({ item }: { item: IBlur }) => {
+const ProductItem = ({ item }: { item: IProduct }) => {
 
   const dispatch = useAppDispatch()
 
@@ -46,4 +46,4 @@ const BlurItem = ({ item }: { item: IBlur }) => {
   )
 };
 
-export default BlurItem;
+export default ProductItem;
