@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import About from "../components/About";
 import Products, { loader as productsLoader } from "../components/Products";
 import ErrorPage from "../components/ErrorPage";
-import Projects from "../components/Projects";
+import Projects, { loader as projectLoader } from "../components/Projects";
 import Root, { loader as rootLoader } from './root'
 
 export const rootRouter = createBrowserRouter([
@@ -23,7 +23,7 @@ export const rootRouter = createBrowserRouter([
                     {
                         path: "projects",
                         element: <Projects />,
-                        //   loader: projectLoader,
+                          loader: projectLoader,
                         //   action: projectAction,
                     },
                     {

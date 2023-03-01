@@ -5,7 +5,8 @@ import axios from 'axios';
 // ----------------------------------------------------------------------
 
 const axiosInstance = axios.create({
-  timeout: 1000
+  timeout: 1000,
+  headers: {'Authorization': 'Client-ID LjctsD_NbOQwbl_04OxgWVhfQzBUVkGt3mOV7o16V84'}
 });
 
 // axiosInstance.interceptors.request.use((request) => {
